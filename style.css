@@ -1,0 +1,778 @@
+/* General */
+
+body
+{
+    position: relative;
+    margin: 0;
+    background-color: rgb(255, 255, 255);
+    color: #E60012;
+    font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+}
+
+.container
+{
+    position: relative;
+    width: 100%;
+    height: 500px;
+    margin: 0 auto;
+    perspective: 800px;
+}
+
+header
+{
+    overflow: hidden;
+}
+
+/* Rules on the top */
+h1, h3
+{
+    text-align: center;
+    margin: 5px;
+}
+
+h3.rule
+{
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+h3.highlight
+{
+    animation: h3-highlight 1s ease-in-out;
+}
+
+@keyframes h3-highlight
+{
+    0%
+    {
+        transform: scale(1);
+    }
+    20%
+    {
+        transform: scale(1.2);
+    }
+    100%
+    {
+        transform: scale(1);
+    }
+}
+
+/* Footer */
+
+footer {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    color: #000000;
+    font-weight: bold;
+}
+
+footer a {
+    color: #E60012;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Switch */
+
+.switch
+{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform-style: preserve-3d;
+    animation: switch-enter 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55), 
+    switch-rotate-1 8s 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards, 
+    switch-rotate-2 2s 10.5s ease-in-out forwards;
+    will-change: transform;
+}
+
+/* Switch animations */
+
+@keyframes switch-enter
+{
+    0%
+    {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100%
+    {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes switch-rotate-1
+{
+    0%
+    {
+        transform:  rotateX(0deg) rotateY(0deg);
+    }
+    100%
+    {
+        transform: rotateX(45deg) rotateY(360deg);
+    }
+}
+
+@keyframes switch-rotate-2
+{
+    0%
+    {
+        transform:  rotateX(45deg) rotateY(0deg);
+    }
+    100%
+    {
+        transform: translateZ(200px) rotateX(25deg) rotateY(0deg);
+    }
+}
+
+/* General elements */
+
+.switch .face
+{
+    position: absolute;
+    transform-style: preserve-3d;
+    /* outline: black 1px solid; */
+}
+
+.switch .block
+{
+    position: absolute;
+    transform-style: preserve-3d;
+}
+
+/* Buttons */
+
+.switch .button
+{
+    transform: translateZ(15px);
+    transition: transform 0.3s ease-in-out;
+}
+
+.switch .button .face
+{
+    left: -11px;
+    top: -11px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #0e0e18;
+}
+
+.switch .button .thick
+{
+    background-color: #0e0e18;
+}
+
+.switch .button button
+{
+    padding: 0;
+    text-align: center;
+    cursor: pointer;
+    background-color: #777777;
+    box-shadow: inset 0 2px 1px rgba(255, 255, 255, 0.3), inset 0 -3px 2px rgba(0, 0, 0, 0.4);
+    color: #000000;
+    font-size: 12px;
+    transform: translateZ(4px);
+}
+
+.switch .button button::selection, .switch .button button::-moz-selection
+{
+    background-color: transparent;
+}
+
+.switch .button:active button
+{
+    box-shadow: inset 0 0px 1px rgba(255, 255, 255, 0.3), inset 0 0px 2px rgba(0, 0, 0, 0.4);
+}
+
+.switch .button button:focus
+{
+    outline: none;
+}
+
+.switch .button .thick.index1 { transform: translateZ(1px); }
+.switch .button .thick.index2 { transform: translateZ(2px); }
+.switch .button .thick.index3 { transform: translateZ(3px); }
+
+/* Sticks */
+
+.switch .stick
+{
+    transform: translateZ(15px);
+}
+
+.switch .stick .neck
+{
+    transform: rotateY(-90deg);
+    transition: transform 0.3s ease-in-out;
+}
+
+.switch .stick .neck .face
+{
+    top: -5px;
+    width: 12px;
+    height: 10px;
+    background-color: #525252;
+}
+
+.switch .stick .neck .top { transform: rotateX(90deg) translateZ(5px); }
+.switch .stick .neck .bottom { transform: rotateX(-90deg) translateZ(5px); }
+.switch .stick .neck .left { transform:  rotateX(0deg) translateZ(5px); }
+.switch .stick .neck .right { transform: rotateY(-180deg) translateZ(5px); }
+
+.switch .stick .neck .head
+{
+    transform: rotateY(90deg) translateZ(12px);
+}
+
+.switch .stick .neck .head .face
+{
+    left: -26px;
+    top: -26px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #0e0e18;
+}
+
+.switch .stick .neck .head .ring
+{
+    background-image: linear-gradient(to bottom, #67706f 0%, #120c0c 100%);
+}
+
+.switch .stick .neck .head .divider-x, .switch .stick .neck .head .divider-y
+{
+    background-color: #4e4f51;
+    border-radius: 0;
+    border: none;
+}
+
+.switch .stick .neck .head .divider-x
+{
+    top: 50%;
+    height: 3px;
+    transform: translateY(-50%);
+}
+
+.switch .stick .neck .head .divider-y
+{
+    left: 50%;
+    width: 3px;
+    transform: translateX(-50%);
+}
+
+.switch .stick .neck .head .front
+{
+    left: -19px;
+    top: -19px;
+    width: 36px;
+    height: 36px;
+    background-image: linear-gradient(to bottom, #17141b 0%, #697279 100%);
+}
+
+.switch .stick .neck .head .thick
+{
+    background-color: #000000;
+}
+
+.switch .stick .neck .head .thick.index1 { transform: translateZ(-1px); }
+.switch .stick .neck .head .thick.index2 { transform: translateZ(-2px); }
+.switch .stick .neck .head .thick.index3 { transform: translateZ(-3px); }
+.switch .stick .neck .head .thick.index4 { transform: translateZ(-4px); }
+.switch .stick .neck .head .thick.index5 { transform: translateZ(-5px); }
+
+/* Hover region are set at each direction of the stick 
+When an hover region is hovered, the next element .neck is transform */
+
+.switch .stick .hover
+{
+    left: -25px;
+    top: -10px;
+    width: 50px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.switch .stick .hover-up { transform: translateZ(13px) translateY(-25px); }
+.switch .stick .hover-up:hover ~ .neck { transform: rotateY(-90deg) rotateZ(-20deg); }
+.switch .stick .hover-right { transform: rotateZ(90deg) translateZ(13px) translateY(-25px); }
+.switch .stick .hover-right:hover ~ .neck { transform: rotateY(-70deg) }
+.switch .stick .hover-down { transform: translateZ(13px) translateY(25px); }
+.switch .stick .hover-down:hover ~ .neck { transform: rotateY(-90deg) rotateZ(20deg); }
+.switch .stick .hover-left { transform: rotateZ(-90deg) translateZ(13px) translateY(-25px); }
+.switch .stick .hover-left:hover ~ .neck { transform: rotateY(-110deg) }
+
+
+/* Body frame */
+
+.switch .body .frame .face
+{
+    background-color: #3b454c;
+}
+
+.switch .body .frame .top
+{
+    transform: rotateX(90deg) translateZ(145px);
+    width: 550px;
+    height: 30px;
+    left: -275px;
+    top: -15px;
+    background-color: #959a9e;
+}
+
+.switch .body .frame .bottom
+{
+    transform: rotateX(-90deg) translateZ(145px);
+    width: 550px;
+    height: 30px;
+    left: -275px;
+    top: -15px;
+    background-color: #23292d;
+}
+
+.switch .body .frame .front
+{
+    transform: rotateX(0deg) translateZ(15px);
+    width: 550px;
+    height: 290px;
+    left: -275px;
+    top: -145px;
+    box-shadow: inset 0px 8px 15px 0px rgba(255, 255, 255, 0.5), inset 0px -8px 15px 0px rgba(0, 0, 0, 0.5);
+}
+
+.switch .body .frame .back
+{
+    transform: rotateY(180deg) translateZ(15px);
+    width: 550px;
+    height: 290px;
+    left: -275px;
+    top: -145px;
+    box-shadow: inset 0px 8px 15px 0px rgba(255, 255, 255, 0.5), inset 0px -8px 15px 0px rgba(0, 0, 0, 0.5);
+}
+
+.switch .body .frame .right
+{
+    transform: rotateY(90deg) translateZ(275px);
+    width: 30px;
+    height: 290px;
+    left: -15px;
+    top: -145px;
+}
+
+.switch .body .frame .left
+{
+    transform: rotateY(-90deg) translateZ(275px);
+    width: 30px;
+    height: 290px;
+    left: -15px;
+    top: -145px;
+}
+
+/* Body screen */
+
+.switch .body .screen
+{
+    transform: translateZ(15px);
+}
+
+.switch .body .screen .background
+{
+    left: -245px;
+    top: -127px;
+    width: 490px;
+    height: 254px;
+    background-color: #0c1218;
+    border-radius: 15px;
+}
+
+.switch .body .screen .inner
+{
+    overflow: hidden;
+    left: -205px;
+    top: -115px;
+    width: 410px;
+    height: 230px;
+    background: #3d3d3d;
+    backface-visibility: hidden;
+}
+
+.switch .body .screen .inner img
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: opacity 1s;
+    will-change: opacity;
+}
+
+.switch .screen img
+{
+    opacity: 0;
+}
+
+
+/* Body buttons */
+
+.switch .body .button.button-power { transform: rotateX(90deg) translateX(-230px) translateZ(145px); }
+.switch .body .button.button-power:active { transform: rotateX(90deg) translateX(-230px) translateZ(142px); }
+
+/* Body Logo */
+
+.switch .body .logo .face
+{
+    left: -100px;
+    top: -100px;
+    width: 200px;
+    height: 200px;
+    transform: rotateY(180deg) translateZ(15px);
+    background: url(http://dev-pikog.craym.eu/projects/switch_3d/images/logo.png) no-repeat center;
+    background-size: 100% 100%;
+}
+
+/* Joycon left */
+
+.switch .joycon-left
+{
+    transform: translateY(-2000px) translateX(-327px);
+    animation: joycon-left-enter 0.8s 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) both;
+}
+
+.switch .joycon-left .frame .face
+{
+    background-color: #01bbda;
+}
+
+.switch .joycon-left .frame .top
+{
+    left: 0px;
+    top: -15px;
+    width: 52px;
+    height: 30px;
+    transform: rotateX(90deg) translateZ(145px);
+    background-color: #77c5d2;
+}
+
+.switch .joycon-left .frame .bottom
+{
+    left: 0px;
+    top: -15px;
+    width: 52px;
+    height: 30px;
+    transform: rotateX(-90deg) translateZ(145px);
+    background-color: #04849a;
+}
+
+.switch .joycon-left .frame .front
+{
+    left: -52px;
+    top: -145px;
+    width: 104px;
+    height: 290px;
+    transform: translateZ(15px);
+    border-radius: 52px 0 0 52px;
+    box-shadow: inset 0px 8px 15px 0px rgba(255, 255, 255, 0.5), inset 0px -5px 19px 5px rgba(0, 0, 0, 0.5);
+}
+
+.switch .joycon-left .frame .back 
+{
+    left: -52px;
+    top: -145px;
+    width: 104px;
+    height: 290px;
+    transform: rotateY(180deg) translateZ(15px);
+    border-radius: 0 52px 52px 0;
+    box-shadow: inset 0px 8px 15px 0px rgba(255, 255, 255, 0.5), inset 0px -5px 19px 5px rgba(0, 0, 0, 0.5);
+}
+
+.switch .joycon-left .frame .right
+{
+    left: -15px;
+    top: -145px;
+    width: 30px;
+    height: 290px;
+    transform: rotateY(90deg) translateZ(52px);
+}
+
+.switch .joycon-left .frame .left
+{
+    left: -15px;
+    top: -93px;
+    width: 30px;
+    height: 186px;
+    transform: rotateY(-90deg) translateZ(52px);
+    background: linear-gradient(to bottom, #77c5d2 10%, #04849a);
+}
+
+/* Joycon left radius */
+
+.switch .joycon-left .frame .top-radius
+{
+    transform: translate3d(0px, -93px, 0px);
+}
+
+.switch .joycon-left .frame .top-radius .face, .switch .joycon-left .frame .bottom-radius .face
+{
+    left: -15px;
+    top: -5px;
+    width: 30px;
+    height: 10px;
+}
+
+.switch .joycon-left .frame .top-radius .face
+{
+    background-color: #77c5d2;
+}
+
+.switch .joycon-left .frame .bottom-radius .face
+{
+    background-color: #04849a;
+}
+
+.switch .joycon-left .frame .top-radius .face.index1 { transform: rotateY(-90deg) rotateX(5deg) translateZ(52px); }
+.switch .joycon-left .frame .top-radius .face.index2 { transform: rotateY(-90deg) rotateX(10deg) translateZ(52px); }
+.switch .joycon-left .frame .top-radius .face.index3 { transform: rotateY(-90deg) rotateX(15deg) translateZ(52px); }
+.switch .joycon-left .frame .top-radius .face.index4 { transform: rotateY(-90deg) rotateX(20deg) translateZ(52px); }
+.switch .joycon-left .frame .top-radius .face.index5 { transform: rotateY(-90deg) rotateX(25deg) translateZ(52px); }
+.switch .joycon-left .frame .top-radius .face.index6 { transform: rotateY(-90deg) rotateX(30deg) translateZ(52px); }
+.switch .joycon-left .frame .top-radius .face.index7 { transform: rotateY(-90deg) rotateX(35deg) translateZ(52px); }
+.switch .joycon-left .frame .top-radius .face.index8 { transform: rotateY(-90deg) rotateX(40deg) translateZ(52px); }
+.switch .joycon-left .frame .top-radius .face.index9 { transform: rotateY(-90deg) rotateX(45deg) translateZ(52px); }
+.switch .joycon-left .frame .top-radius .face.index10 { transform: rotateY(-90deg) rotateX(50deg) translateZ(52px); }
+.switch .joycon-left .frame .top-radius .face.index11 { transform: rotateY(-90deg) rotateX(55deg) translateZ(52px); }
+.switch .joycon-left .frame .top-radius .face.index12 { transform: rotateY(-90deg) rotateX(60deg) translateZ(52px); }
+.switch .joycon-left .frame .top-radius .face.index13 { transform: rotateY(-90deg) rotateX(65deg) translateZ(52px); }
+.switch .joycon-left .frame .top-radius .face.index14 { transform: rotateY(-90deg) rotateX(70deg) translateZ(52px); }
+.switch .joycon-left .frame .top-radius .face.index15 { transform: rotateY(-90deg) rotateX(75deg) translateZ(52px); }
+.switch .joycon-left .frame .top-radius .face.index16 { transform: rotateY(-90deg) rotateX(80deg) translateZ(52px); }
+.switch .joycon-left .frame .top-radius .face.index17 { transform: rotateY(-90deg) rotateX(90deg) translateZ(52px); }
+
+.switch .joycon-left .frame .bottom-radius
+{
+    transform: translate3d(0px, 93px, 0px);
+}
+
+.switch .joycon-left .frame .bottom-radius .face.index1 { transform: rotateY(-90deg) rotateX(-5deg) translateZ(52px); }
+.switch .joycon-left .frame .bottom-radius .face.index2 { transform: rotateY(-90deg) rotateX(-10deg) translateZ(52px); }
+.switch .joycon-left .frame .bottom-radius .face.index3 { transform: rotateY(-90deg) rotateX(-15deg) translateZ(52px); }
+.switch .joycon-left .frame .bottom-radius .face.index4 { transform: rotateY(-90deg) rotateX(-20deg) translateZ(52px); }
+.switch .joycon-left .frame .bottom-radius .face.index5 { transform: rotateY(-90deg) rotateX(-25deg) translateZ(52px); }
+.switch .joycon-left .frame .bottom-radius .face.index6 { transform: rotateY(-90deg) rotateX(-30deg) translateZ(52px); }
+.switch .joycon-left .frame .bottom-radius .face.index7 { transform: rotateY(-90deg) rotateX(-35deg) translateZ(52px); }
+.switch .joycon-left .frame .bottom-radius .face.index8 { transform: rotateY(-90deg) rotateX(-40deg) translateZ(52px); }
+.switch .joycon-left .frame .bottom-radius .face.index9 { transform: rotateY(-90deg) rotateX(-45deg) translateZ(52px); }
+.switch .joycon-left .frame .bottom-radius .face.index10 { transform: rotateY(-90deg) rotateX(-50deg) translateZ(52px);}
+.switch .joycon-left .frame .bottom-radius .face.index11 { transform: rotateY(-90deg) rotateX(-55deg) translateZ(52px);}
+.switch .joycon-left .frame .bottom-radius .face.index12 { transform: rotateY(-90deg) rotateX(-60deg) translateZ(52px);}
+.switch .joycon-left .frame .bottom-radius .face.index13 { transform: rotateY(-90deg) rotateX(-65deg) translateZ(52px);}
+.switch .joycon-left .frame .bottom-radius .face.index14 { transform: rotateY(-90deg) rotateX(-70deg) translateZ(52px);}
+.switch .joycon-left .frame .bottom-radius .face.index15 { transform: rotateY(-90deg) rotateX(-75deg) translateZ(52px);}
+.switch .joycon-left .frame .bottom-radius .face.index16 { transform: rotateY(-90deg) rotateX(-80deg) translateZ(52px);}
+.switch .joycon-left .frame .bottom-radius .face.index17 { transform: rotateY(-90deg) rotateX(-90deg) translateZ(52px);}
+
+/* Joycon left stick */
+
+.switch .joycon-left .stick
+{
+    transform: translateY(-80px) translateZ(15px);
+}
+
+/* Joycon left buttons */
+
+.switch .joycon-left .button.button-up { transform: translateY(-5px) translateZ(15px); }
+.switch .joycon-left .button.button-up:active { transform: translateY(-5px) translateZ(12px); }
+.switch .joycon-left .button.button-down { transform: translateY(45px) translateZ(15px); }
+.switch .joycon-left .button.button-down:active { transform: translateY(45px) translateZ(12px); }
+.switch .joycon-left .button.button-left { transform: translateY(20px) translateX(-25px) translateZ(15px); }
+.switch .joycon-left .button.button-left:active { transform: translateY(20px) translateX(-25px) translateZ(12px); }
+.switch .joycon-left .button.button-right { transform: translateY(20px) translateX(25px) translateZ(15px); }
+.switch .joycon-left .button.button-right:active { transform: translateY(20px) translateX(25px) translateZ(12px); }
+
+/* Joycon left animation */
+
+@keyframes joycon-left-enter
+{
+    0%
+    {
+        transform: translateY(-2000px) translateX(-327px);
+    }
+    100%
+    {
+        transform: translateY(0px) translateX(-327px);
+    }
+}
+
+/* Joycon right */
+
+.switch .joycon-right
+{
+    transform: translateY(2000px) translateX(327px);
+    animation: joycon-right-enter 0.8s 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) both;
+}
+
+.switch .joycon-right .frame .face
+{
+    background-color: #ff5d53;
+}
+
+.switch .joycon-right .frame .top 
+{
+    right: 0px;
+    top: -15px;
+    width: 52px;
+    height: 30px;
+    transform: rotateX(90deg) translateZ(145px);
+    background-color: #e19d99;
+}
+
+.switch .joycon-right .frame .bottom
+{
+    right: 0px;
+    top: -15px;
+    width: 52px;
+    height: 30px;
+    transform: rotateX(-90deg) translateZ(145px);
+    background-color: #b4645f;
+}
+
+.switch .joycon-right .frame .front
+{
+    left: -52px;
+    top: -145px;
+    width: 104px;
+    height: 290px;
+    transform: translateZ(15px);
+    border-radius: 0 52px 52px 0;
+    box-shadow: inset 0px 8px 15px 0px rgba(255, 255, 255, 0.5), inset 0px -5px 19px 5px rgba(0, 0, 0, 0.5);
+}
+
+.switch .joycon-right .frame .back
+{
+    left: -52px;
+    top: -145px;
+    width: 104px;
+    height: 290px;
+    transform: rotateY(180deg) translateZ(15px);
+    border-radius: 52px 0 0 52px;
+    box-shadow: inset 0px 8px 15px 0px rgba(255, 255, 255, 0.5), inset 0px -5px 19px 5px rgba(0, 0, 0, 0.5);
+}
+
+.switch .joycon-right .frame .right
+{
+    left: -15px;
+    top: -93px;
+    width: 30px;
+    height: 186px;
+    transform: rotateY(90deg) translateZ(52px);
+    background: linear-gradient(to bottom, #e19d99 10%, #b4645f);
+}
+
+.switch .joycon-right .frame .left
+{
+    left: -15px;
+    top: -145px;
+    width: 30px;
+    height: 290px;
+    transform: rotateY(-90deg) translateZ(52px);
+}
+
+/* Joycon right radius */
+
+.switch .joycon-right .frame .top-radius
+{
+    transform: translate3d(0px, -93px, 0px);
+}
+
+.switch .joycon-right .frame .top-radius .face
+{
+    background-color: #e19d99;
+}
+.switch .joycon-right .frame .bottom-radius .face
+{
+    background-color: #b4645f;
+}
+
+.switch .joycon-right .frame .top-radius .face.index1 { transform: rotateY(90deg) rotateX(5deg) translateZ(52px); }
+.switch .joycon-right .frame .top-radius .face.index2 { transform: rotateY(90deg) rotateX(10deg) translateZ(52px); }
+.switch .joycon-right .frame .top-radius .face.index3 { transform: rotateY(90deg) rotateX(15deg) translateZ(52px); }
+.switch .joycon-right .frame .top-radius .face.index4 { transform: rotateY(90deg) rotateX(20deg) translateZ(52px); }
+.switch .joycon-right .frame .top-radius .face.index5 { transform: rotateY(90deg) rotateX(25deg) translateZ(52px); }
+.switch .joycon-right .frame .top-radius .face.index6 { transform: rotateY(90deg) rotateX(30deg) translateZ(52px); }
+.switch .joycon-right .frame .top-radius .face.index7 { transform: rotateY(90deg) rotateX(35deg) translateZ(52px); }
+.switch .joycon-right .frame .top-radius .face.index8 { transform: rotateY(90deg) rotateX(40deg) translateZ(52px); }
+.switch .joycon-right .frame .top-radius .face.index9 { transform: rotateY(90deg) rotateX(45deg) translateZ(52px); }
+.switch .joycon-right .frame .top-radius .face.index10 { transform: rotateY(90deg) rotateX(50deg) translateZ(52px); }
+.switch .joycon-right .frame .top-radius .face.index11 { transform: rotateY(90deg) rotateX(55deg) translateZ(52px); }
+.switch .joycon-right .frame .top-radius .face.index12 { transform: rotateY(90deg) rotateX(60deg) translateZ(52px); }
+.switch .joycon-right .frame .top-radius .face.index13 { transform: rotateY(90deg) rotateX(65deg) translateZ(52px); }
+.switch .joycon-right .frame .top-radius .face.index14 { transform: rotateY(90deg) rotateX(70deg) translateZ(52px); }
+.switch .joycon-right .frame .top-radius .face.index15 { transform: rotateY(90deg) rotateX(75deg) translateZ(52px); }
+.switch .joycon-right .frame .top-radius .face.index16 { transform: rotateY(90deg) rotateX(80deg) translateZ(52px); }
+.switch .joycon-right .frame .top-radius .face.index17 { transform: rotateY(90deg) rotateX(90deg) translateZ(52px); }
+
+.switch .joycon-right .frame .top-radius .face, .switch .joycon-right .frame .bottom-radius .face
+{
+    left: -15px;
+    top: -5px;
+    width: 30px;
+    height: 10px;
+}
+
+.switch .joycon-right .frame .bottom-radius
+{
+    transform: translate3d(0px, 93px, 0px);
+}
+
+.switch .joycon-right .frame .bottom-radius .face.index1 { transform: rotateY(90deg) rotateX(-5deg) translateZ(52px); }
+.switch .joycon-right .frame .bottom-radius .face.index2 { transform: rotateY(90deg) rotateX(-10deg) translateZ(52px); }
+.switch .joycon-right .frame .bottom-radius .face.index3 { transform: rotateY(90deg) rotateX(-15deg) translateZ(52px); }
+.switch .joycon-right .frame .bottom-radius .face.index4 { transform: rotateY(90deg) rotateX(-20deg) translateZ(52px); }
+.switch .joycon-right .frame .bottom-radius .face.index5 { transform: rotateY(90deg) rotateX(-25deg) translateZ(52px); }
+.switch .joycon-right .frame .bottom-radius .face.index6 { transform: rotateY(90deg) rotateX(-30deg) translateZ(52px); }
+.switch .joycon-right .frame .bottom-radius .face.index7 { transform: rotateY(90deg) rotateX(-35deg) translateZ(52px); }
+.switch .joycon-right .frame .bottom-radius .face.index8 { transform: rotateY(90deg) rotateX(-40deg) translateZ(52px); }
+.switch .joycon-right .frame .bottom-radius .face.index9 { transform: rotateY(90deg) rotateX(-45deg) translateZ(52px); }
+.switch .joycon-right .frame .bottom-radius .face.index10 { transform: rotateY(90deg) rotateX(-50deg) translateZ(52px);}
+.switch .joycon-right .frame .bottom-radius .face.index11 { transform: rotateY(90deg) rotateX(-55deg) translateZ(52px);}
+.switch .joycon-right .frame .bottom-radius .face.index12 { transform: rotateY(90deg) rotateX(-60deg) translateZ(52px);}
+.switch .joycon-right .frame .bottom-radius .face.index13 { transform: rotateY(90deg) rotateX(-65deg) translateZ(52px);}
+.switch .joycon-right .frame .bottom-radius .face.index14 { transform: rotateY(90deg) rotateX(-70deg) translateZ(52px);}
+.switch .joycon-right .frame .bottom-radius .face.index15 { transform: rotateY(90deg) rotateX(-75deg) translateZ(52px);}
+.switch .joycon-right .frame .bottom-radius .face.index16 { transform: rotateY(90deg) rotateX(-80deg) translateZ(52px);}
+.switch .joycon-right .frame .bottom-radius .face.index17 { transform: rotateY(90deg) rotateX(-90deg) translateZ(52px);}
+
+/* Joycon right stick */
+
+.switch .joycon-right .stick
+{
+    transform: translateY(30px) translateZ(15px);
+}
+
+/* Joycon right buttons */
+
+.switch .joycon-right .button.button-X { transform: translateY(-90px) translateZ(15px); }
+.switch .joycon-right .button.button-X:active { transform: translateY(-90px) translateZ(12px); }
+.switch .joycon-right .button.button-B { transform: translateY(-40px) translateZ(15px); }
+.switch .joycon-right .button.button-B:active { transform: translateY(-40px) translateZ(12px); }
+.switch .joycon-right .button.button-Y { transform: translateY(-65px) translateX(-25px) translateZ(15px); }
+.switch .joycon-right .button.button-Y:active { transform: translateY(-65px) translateX(-25px) translateZ(12px); }
+.switch .joycon-right .button.button-A { transform: translateY(-65px) translateX(25px) translateZ(15px); }
+.switch .joycon-right .button.button-A:active { transform: translateY(-65px) translateX(25px) translateZ(12px); }
+
+/* Joycon right animation */
+
+@keyframes joycon-right-enter
+{
+    0%
+    {
+        transform: translateY(2000px) translateX(327px);
+    }
+    100%
+    {
+        transform: translateY(0px) translateX(327px);
+    }
+}

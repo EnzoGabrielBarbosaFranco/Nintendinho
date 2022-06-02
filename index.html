@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="main.js">
+    <title>Nintendinho</title>
+</head>
+<body>
+    <header>
+        <h1>3D Nintendo Switch Oled Brabissimo</h1>
+        <h3 class="rule"></h3>
+        <h3 class="rule" id="warning_turn_on"></h3>
+      </header>
+      <main>
+        <!-- Each block can contain a face or another block -->
+        <div class="container">
+          <div class="switch">
+            <!-- Body of the switch -->
+            <div class="block body">
+              <div class="block frame">
+                <div class="face top"></div>
+                <div class="face front"></div>
+                <div class="face bottom"></div>
+                <div class="face back"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+              </div>
+              <!-- Screen of the switch -->
+              <div class="block screen">
+                <div class="face background"></div>
+                <div class="block inner">
+                  <img src="http://dev-pikog.craym.eu/projects/switch_3d/images/mario_1.gif" id="screen_mario_1" alt="mario 1">
+                  <img src="http://dev-pikog.craym.eu/projects/switch_3d/images/mario_2.gif" id="screen_mario_2" alt="mario 2">
+                  <img src="http://dev-pikog.craym.eu/projects/switch_3d/images/mario_3.gif" id="screen_mario_3" alt="mario 3">
+                  <img src="http://dev-pikog.craym.eu/projects/switch_3d/images/splatoon_1.gif" id="screen_splatoon_1" alt="splatoon 1">
+                  <img src="http://dev-pikog.craym.eu/projects/switch_3d/images/zelda_1.gif" id="screen_zelda_1" alt="zelda 1">
+                  <img src="http://dev-pikog.craym.eu/projects/switch_3d/images/kart_1.gif" id="screen_kart_1" alt="kart 1">
+                  <img src="http://dev-pikog.craym.eu/projects/switch_3d/images/boot.gif" id="screen_boot" alt="boot switch animation">
+                </div>
+              </div>
+              <!-- Power button -->
+              <!-- Each button have an action : power or show
+      if the action is show, they have also the value of image to show -->
+              <div class="block button button-power" data-action="power">
+                <div class="face thick index1"></div>
+                <div class="face thick index2"></div>
+                <div class="face thick index3"></div> 
+                <button class="face">I/O</button>
+              </div>
+              <!-- Backface logo -->
+              <div class="block logo">
+                <div class="face"></div>
+              </div>
+            </div>
+            <!-- Joycon left -->
+            <div class="block joycon-left">
+              <div class="block frame">
+                <div class="face top"></div>
+                <div class="face front"></div>
+                <div class="face bottom"></div>
+                <div class="face back"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+                <!-- Top left corner -->
+                <div class="block top-radius">
+                  <div class="face index1"></div>
+                  <div class="face index2"></div>
+                  <div class="face index3"></div>
+                  <div class="face index4"></div>
+                  <div class="face index5"></div>
+                  <div class="face index6"></div>
+                  <div class="face index7"></div>
+                  <div class="face index8"></div>
+                  <div class="face index9"></div>
+                  <div class="face index10"></div>
+                  <div class="face index11"></div>
+                  <div class="face index12"></div>
+                  <div class="face index13"></div>
+                  <div class="face index14"></div>
+                  <div class="face index15"></div>
+                  <div class="face index16"></div>
+                  <div class="face index17"></div>
+                </div>
+                <!-- Bottom left corner -->
+                <div class="block bottom-radius">
+                  <div class="face index1"></div>
+                  <div class="face index2"></div>
+                  <div class="face index3"></div>
+                  <div class="face index4"></div>
+                  <div class="face index5"></div>
+                  <div class="face index6"></div>
+                  <div class="face index7"></div>
+                  <div class="face index8"></div>
+                  <div class="face index9"></div>
+                  <div class="face index10"></div>
+                  <div class="face index11"></div>
+                  <div class="face index12"></div>
+                  <div class="face index13"></div>
+                  <div class="face index14"></div>
+                  <div class="face index15"></div>
+                  <div class="face index16"></div>
+                  <div class="face index17"></div>
+                </div>
+              </div>
+              <!-- Left stick -->
+              <div class="block stick">
+                <div class="face hover hover-up"></div>
+                <div class="face hover hover-right"></div>
+                <div class="face hover hover-down"></div>
+                <div class="face hover hover-left"></div>
+                <div class="block neck">
+                  <div class="face top"></div>
+                  <div class="face bottom"></div>
+                  <div class="face left"></div>
+                  <div class="face right"></div>
+                  <div class="block head">
+                    <div class="face thick index1"></div>
+                    <div class="face thick index2"></div>
+                    <div class="face thick index3"></div> 
+                    <div class="face thick index4"></div> 
+                    <div class="face thick index5"></div>
+                    <div class="face ring"></div>
+                    <div class="face divider-x"></div>
+                    <div class="face divider-y"></div>
+                    <div class="face front"></div>
+                  </div>
+                </div>
+              </div>
+              <!-- Buttons of Joycon left -->
+              <div class="block button button-up" data-action="show" data-img="mario_1">
+                <div class="face thick index1"></div>
+                <div class="face thick index2"></div>
+                <div class="face thick index3"></div> 
+                <button class="face">&#9650;</button>
+              </div>
+              <div class="block button button-down" data-action="show" data-img="zelda_1">
+                <div class="face thick index1"></div>
+                <div class="face thick index2"></div>
+                <div class="face thick index3"></div> 
+                <button class="face">&#9660;</button>
+              </div>
+              <div class="block button button-left" data-action="show" data-img="mario_2">
+                <div class="face thick index1"></div>
+                <div class="face thick index2"></div>
+                <div class="face thick index3"></div> 
+                <button class="face">&#9664;</button>
+              </div>
+              <div class="block button button-right" data-action="show" data-img="splatoon_1">
+                <div class="face thick index1"></div>
+                <div class="face thick index2"></div>
+                <div class="face thick index3"></div> 
+                <button class="face">&#9654;</button>
+              </div>
+            </div>
+            <!-- Joycon right -->
+            <div class="block joycon-right">
+              <div class="block frame">
+                <div class="face top"></div>
+                <div class="face front"></div>
+                <div class="face bottom"></div>
+                <div class="face back"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+                <!-- Top right corner -->
+                <div class="block top-radius">
+                  <div class="face index1"></div>
+                  <div class="face index2"></div>
+                  <div class="face index3"></div>
+                  <div class="face index4"></div>
+                  <div class="face index5"></div>
+                  <div class="face index6"></div>
+                  <div class="face index7"></div>
+                  <div class="face index8"></div>
+                  <div class="face index9"></div>
+                  <div class="face index10"></div>
+                  <div class="face index11"></div>
+                  <div class="face index12"></div>
+                  <div class="face index13"></div>
+                  <div class="face index14"></div>
+                  <div class="face index15"></div>
+                  <div class="face index16"></div>
+                  <div class="face index17"></div>
+                </div>
+                <!-- Bottom right corner -->
+                <div class="block bottom-radius">
+                  <div class="face index1"></div>
+                  <div class="face index2"></div>
+                  <div class="face index3"></div>
+                  <div class="face index4"></div>
+                  <div class="face index5"></div>
+                  <div class="face index6"></div>
+                  <div class="face index7"></div>
+                  <div class="face index8"></div>
+                  <div class="face index9"></div>
+                  <div class="face index10"></div>
+                  <div class="face index11"></div>
+                  <div class="face index12"></div>
+                  <div class="face index13"></div>
+                  <div class="face index14"></div>
+                  <div class="face index15"></div>
+                  <div class="face index16"></div>
+                  <div class="face index17"></div>
+                </div>
+              </div>
+              <!-- Right sticks -->
+              <div class="block stick">
+                <div class="face hover hover-up"></div>
+                <div class="face hover hover-right"></div>
+                <div class="face hover hover-down"></div>
+                <div class="face hover hover-left"></div>
+                <div class="block neck">
+                  <div class="face top"></div>
+                  <div class="face bottom"></div>
+                  <div class="face left"></div>
+                  <div class="face right"></div>
+                  <div class="block head">
+                    <div class="face thick index1"></div>
+                    <div class="face thick index2"></div>
+                    <div class="face thick index3"></div> 
+                    <div class="face thick index4"></div> 
+                    <div class="face thick index5"></div>
+                    <div class="face ring"></div>
+                    <div class="face divider-x"></div>
+                    <div class="face divider-y"></div>
+                    <div class="face front"></div>
+                  </div>
+                </div>
+              </div>
+              <!-- Buttons of joycon right -->
+              <div class="block button button-X" data-action="show" data-img="mario_3">
+                <div class="face thick index1"></div>
+                <div class="face thick index2"></div>
+                <div class="face thick index3"></div> 
+                <button class="face">X</button>
+              </div>
+              <div class="block button button-B" data-action="show" data-img="kart_1">
+                <div class="face thick index1"></div>
+                <div class="face thick index2"></div>
+                <div class="face thick index3"></div> 
+                <button class="face">B</button>
+              </div>
+              <div class="block button button-Y" data-action="show" data-img="zelda_1">
+                <div class="face thick index1"></div>
+                <div class="face thick index2"></div>
+                <div class="face thick index3"></div> 
+                <button class="face">Y</button>
+              </div>
+              <div class="block button button-A" data-action="show" data-img="mario_1">
+                <div class="face thick index1"></div>
+                <div class="face thick index2"></div>
+                <div class="face thick index3"></div> 
+                <button class="face">A</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer>
+        Made By <a href="https://github.com/EnzoGabrielBarbosaFranco">Enzo Gabriel</a>
+      </footer>
+</body>
+</html>
